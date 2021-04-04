@@ -1,0 +1,756 @@
+city,date,conditions
+"Indianapolis, IN",2018-12-02,Partially cloudy
+"San Antonio, TX",2018-05-20,"Rain, Partially cloudy"
+"Houston, TX",2019-05-26,Partially cloudy
+"Newark, NJ",2018-07-12,Partially cloudy
+"Las Vegas, NV",2018-03-01,Partially cloudy
+"St. Louis, MO",2019-09-11,Clear
+"Grand Junction, CO",2018-04-06,Overcast
+"Wilmington, NC",2018-12-12,Clear
+"San Francisco, CA",2019-09-28,Partially cloudy
+"Nashville, TN",2018-04-09,Partially cloudy
+"San Francisco, CA",2019-11-05,Clear
+"Charlotte, NC",2018-05-10,"Rain, Partially cloudy"
+"Dallas/Fort Worth, TX",2018-12-03,Partially cloudy
+"Chicago, IL",2018-07-06,Clear
+"Dallas/Fort Worth, TX",2019-02-10,"Rain, Overcast"
+"Austin, TX",2018-03-24,Overcast
+"Charlottesville, VA",2018-05-24,Clear
+"Dallas/Fort Worth, TX",2019-08-23,Partially cloudy
+"Kona, HI",2019-07-14,"Rain, Partially cloudy"
+"Detroit, MI",2018-03-27,"Rain, Overcast"
+"Austin, TX",2019-12-15,Clear
+"Los Angeles, CA",2019-04-08,Clear
+"Houston, TX",2018-01-14,Clear
+"New York, NY",2018-08-10,Clear
+"San Diego, CA",2018-09-10,Partially cloudy
+"Salt Lake City, UT",2019-06-26,Partially cloudy
+"Bend/Redmond, OR",2019-04-14,Partially cloudy
+"Baltimore, MD",2018-07-20,Partially cloudy
+"Charlotte, NC",2019-06-10,"Rain, Partially cloudy"
+"Charlotte, NC",2018-03-29,Partially cloudy
+"Charlotte, NC",2018-09-16,"Rain, Overcast"
+"Detroit, MI",2019-06-03,Clear
+"New York, NY",2019-06-23,Clear
+"Baltimore, MD",2018-01-12,"Rain, Overcast"
+"Dallas/Fort Worth, TX",2018-03-05,Partially cloudy
+"Orlando, FL",2018-03-17,Clear
+"Phoenix, AZ",2018-03-20,Partially cloudy
+"Santa Ana, CA",2018-03-28,Clear
+"Nashville, TN",2019-11-06,Partially cloudy
+"Denver, CO",2019-07-01,"Rain, Partially cloudy"
+"Atlanta, GA",2019-01-03,"Rain, Overcast"
+"Atlanta, GA",2019-05-26,Clear
+"Atlanta, GA",2018-06-19,Clear
+"Washington, DC",2018-05-18,"Rain, Overcast"
+"Evansville, IN",2019-05-02,"Rain, Partially cloudy"
+"Salt Lake City, UT",2019-02-02,Partially cloudy
+"Nashville, TN",2019-06-16,Partially cloudy
+"Portland, OR",2019-06-30,Clear
+"Duluth, MN",2018-10-08,"Rain, Overcast"
+"Atlanta, GA",2018-12-30,"Rain, Overcast"
+"Eugene, OR",2019-12-28,Partially cloudy
+"Chicago, IL",2019-05-29,"Rain, Partially cloudy"
+"Honolulu, HI",2018-10-26,"Rain, Overcast"
+"San Francisco, CA",2018-05-18,Overcast
+"Los Angeles, CA",2019-08-23,Partially cloudy
+"New York, NY",2019-05-01,"Rain, Partially cloudy"
+"Spokane, WA",2018-04-08,"Rain, Overcast"
+"Chicago, IL",2018-11-04,"Rain, Overcast"
+"Helena, MT",2019-08-28,Clear
+"Fort Lauderdale, FL",2019-08-18,Partially cloudy
+"Knoxville, TN",2018-03-12,"Rain, Overcast"
+"Charlotte, NC",2018-04-06,Partially cloudy
+"Seattle, WA",2019-12-12,"Rain, Partially cloudy"
+"Hartford, CT",2019-10-02,"Rain, Partially cloudy"
+"Orlando, FL",2018-02-10,Partially cloudy
+"Oklahoma City, OK",2019-04-13,"Rain, Partially cloudy"
+"Portland, OR",2019-04-03,"Rain, Partially cloudy"
+"St. Louis, MO",2019-07-08,Clear
+"Buffalo, NY",2018-07-26,"Rain, Partially cloudy"
+"Buffalo, NY",2018-06-04,"Rain, Overcast"
+"Rochester, NY",2018-10-13,"Rain, Overcast"
+"Detroit, MI",2019-10-17,"Rain, Partially cloudy"
+"Denver, CO",2018-09-05,"Rain, Overcast"
+"Paducah, KY",2019-05-09,"Rain, Partially cloudy"
+"Indianapolis, IN",2019-02-01,"Snow, Partially cloudy"
+"Houston, TX",2019-12-18,Clear
+"New York, NY",2019-10-10,"Rain, Partially cloudy"
+"Orlando, FL",2019-04-19,"Rain, Partially cloudy"
+"San Francisco, CA",2019-06-24,Partially cloudy
+"Helena, MT",2018-04-05,"Snow, Overcast"
+"Huntsville, AL",2019-12-15,Partially cloudy
+"Richmond, VA",2019-07-26,Partially cloudy
+"Seattle, WA",2018-12-01,"Rain, Overcast"
+"Honolulu, HI",2018-01-25,Partially cloudy
+"Los Angeles, CA",2019-12-22,"Rain, Partially cloudy"
+"Baltimore, MD",2019-07-21,Partially cloudy
+"White Plains, NY",2018-08-14,"Rain, Partially cloudy"
+"Los Angeles, CA",2019-03-25,Clear
+"Milwaukee, WI",2018-10-13,Partially cloudy
+"Grand Rapids, MI",2019-09-28,"Rain, Overcast"
+"Minneapolis, MN",2019-05-27,"Rain, Overcast"
+"Atlanta, GA",2018-11-22,Clear
+"Greensboro/High Point, NC",2019-06-16,Partially cloudy
+"Grand Junction, CO",2019-02-28,"Rain, Partially cloudy"
+"Chicago, IL",2018-11-19,Overcast
+"Detroit, MI",2018-12-03,Overcast
+"San Francisco, CA",2018-09-12,Partially cloudy
+"Fort Lauderdale, FL",2018-12-10,Partially cloudy
+"Raleigh/Durham, NC",2018-06-19,Partially cloudy
+"Atlanta, GA",2018-06-26,"Rain, Partially cloudy"
+"Las Vegas, NV",2018-08-30,Clear
+"Newark, NJ",2019-02-25,Partially cloudy
+"Saipan, TT",2019-02-21,Partially cloudy
+"Anchorage, AK",2019-02-19,"Snow, Partially cloudy"
+"Boston, MA",2019-08-08,"Rain, Partially cloudy"
+"Denver, CO",2019-04-19,Clear
+"Ontario, CA",2018-03-02,"Rain, Overcast"
+"Santa Ana, CA",2019-09-10,Partially cloudy
+"Los Angeles, CA",2019-05-06,"Rain, Partially cloudy"
+"Miami, FL",2018-09-13,"Rain, Partially cloudy"
+"Atlanta, GA",2018-10-06,Clear
+"Dallas/Fort Worth, TX",2019-04-27,Partially cloudy
+"Las Vegas, NV",2019-06-07,Clear
+"Sarasota/Bradenton, FL",2019-01-03,Clear
+"Minneapolis, MN",2019-09-02,"Rain, Partially cloudy"
+"Las Vegas, NV",2019-11-07,Clear
+"Chicago, IL",2018-01-12,Overcast
+"Los Angeles, CA",2019-03-13,Rain
+"Raleigh/Durham, NC",2018-04-01,Partially cloudy
+"Albany, NY",2018-08-17,"Rain, Overcast"
+"Atlanta, GA",2018-12-24,Clear
+"Atlanta, GA",2019-07-08,"Rain, Partially cloudy"
+"Seattle, WA",2019-08-26,Clear
+"Charlottesville, VA",2019-02-24,Rain
+"Tampa, FL",2019-02-18,Partially cloudy
+"Houston, TX",2018-03-29,"Rain, Partially cloudy"
+"Washington, DC",2019-12-04,"Rain, Partially cloudy"
+"Ketchikan, AK",2019-01-31,"Rain, Overcast"
+"Peoria, IL",2019-11-22,Partially cloudy
+"Dallas, TX",2018-07-12,"Rain, Partially cloudy"
+"Philadelphia, PA",2018-04-21,Partially cloudy
+"Dallas/Fort Worth, TX",2019-11-24,Clear
+"Salt Lake City, UT",2018-03-20,Overcast
+"Colorado Springs, CO",2018-06-17,"Rain, Partially cloudy"
+"Minneapolis, MN",2018-01-17,Clear
+"Omaha, NE",2018-09-08,Partially cloudy
+"Detroit, MI",2018-05-17,Clear
+"Albuquerque, NM",2018-07-07,Partially cloudy
+"Newport News/Williamsburg, VA",2018-01-22,Partially cloudy
+"Chicago, IL",2019-03-11,Partially cloudy
+"New York, NY",2019-11-28,"Rain, Partially cloudy"
+"Dallas/Fort Worth, TX",2019-04-13,"Rain, Overcast"
+"Minneapolis, MN",2019-08-03,"Rain, Partially cloudy"
+"Atlanta, GA",2018-05-10,"Rain, Partially cloudy"
+"Charlotte, NC",2019-08-29,Clear
+"Grand Rapids, MI",2018-05-18,"Rain, Partially cloudy"
+"Dallas, TX",2019-01-31,Overcast
+"Madison, WI",2018-05-11,"Rain, Overcast"
+"New York, NY",2019-11-17,Partially cloudy
+"Dallas/Fort Worth, TX",2019-01-17,Partially cloudy
+"Alpena, MI",2018-05-05,Clear
+"New Orleans, LA",2018-12-22,Partially cloudy
+"Missoula, MT",2018-06-26,Clear
+"Salt Lake City, UT",2018-02-23,"Snow, Overcast"
+"Philadelphia, PA",2019-01-05,"Rain, Partially cloudy"
+"Cleveland, OH",2019-07-30,"Rain, Partially cloudy"
+"Charlotte, NC",2018-05-02,Clear
+"Dallas/Fort Worth, TX",2019-12-13,Clear
+"Miami, FL",2018-05-10,Partially cloudy
+"Portland, OR",2019-11-05,Overcast
+"Las Vegas, NV",2019-05-12,Clear
+"Charleston, SC",2019-12-13,"Rain, Overcast"
+"Boston, MA",2018-02-08,Partially cloudy
+"Houston, TX",2018-04-19,Partially cloudy
+"Midland/Odessa, TX",2018-06-26,Clear
+"San Antonio, TX",2018-07-26,Clear
+"Juneau, AK",2018-12-24,"Snow, Overcast"
+"Myrtle Beach, SC",2018-02-11,"Rain, Overcast"
+"Providence, RI",2018-06-30,Clear
+"Buffalo, NY",2019-10-01,"Rain, Partially cloudy"
+"Cincinnati, OH",2019-10-18,Clear
+"Atlanta, GA",2018-08-03,"Rain, Overcast"
+"Memphis, TN",2019-11-01,Clear
+"Chicago, IL",2019-02-24,"Snow, Partially cloudy"
+"Moline, IL",2019-03-19,Clear
+"Chicago, IL",2019-10-05,"Rain, Partially cloudy"
+"Grand Junction, CO",2018-01-31,Clear
+"Phoenix, AZ",2018-01-19,Partially cloudy
+"New York, NY",2018-09-17,"Rain, Partially cloudy"
+"Chicago, IL",2018-07-09,Partially cloudy
+"Houston, TX",2018-12-25,Partially cloudy
+"Miami, FL",2018-03-29,Overcast
+"Denver, CO",2018-04-11,Partially cloudy
+"Denver, CO",2019-04-04,Partially cloudy
+"Madison, WI",2019-01-31,"Snow, Partially cloudy"
+"New Orleans, LA",2019-08-16,Partially cloudy
+"Tallahassee, FL",2019-05-16,Clear
+"Florence, SC",2019-09-29,Clear
+"Detroit, MI",2019-02-14,"Snow, Partially cloudy"
+"Las Vegas, NV",2019-08-09,Clear
+"Salt Lake City, UT",2019-01-04,Partially cloudy
+"Fort Lauderdale, FL",2018-04-04,"Rain, Partially cloudy"
+"New York, NY",2018-02-27,Rain
+"Milwaukee, WI",2019-06-19,"Rain, Overcast"
+"New York, NY",2019-08-03,Clear
+"Boston, MA",2019-02-12,"Snow, Partially cloudy"
+"Los Angeles, CA",2019-02-09,"Rain, Partially cloudy"
+"Honolulu, HI",2019-04-22,Partially cloudy
+"San Francisco, CA",2019-09-25,Clear
+"Atlanta, GA",2019-07-16,Clear
+"Las Vegas, NV",2019-07-21,Clear
+"Indianapolis, IN",2019-01-02,"Rain, Overcast"
+"White Plains, NY",2019-06-23,Clear
+"Orlando, FL",2018-11-08,"Rain, Partially cloudy"
+"Nashville, TN",2019-01-30,Partially cloudy
+"San Francisco, CA",2019-03-04,"Rain, Partially cloudy"
+"Fresno, CA",2018-09-20,Clear
+"Atlanta, GA",2018-04-19,Clear
+"Minneapolis, MN",2018-01-08,Partially cloudy
+"Kansas City, MO",2018-02-06,Partially cloudy
+"Nashville, TN",2019-09-27,Partially cloudy
+"Austin, TX",2019-08-07,Partially cloudy
+"Atlanta, GA",2019-03-27,"Rain, Partially cloudy"
+"Las Vegas, NV",2018-08-04,Clear
+"Philadelphia, PA",2018-12-13,Overcast
+"Las Vegas, NV",2018-06-25,Clear
+"Milwaukee, WI",2018-03-11,Partially cloudy
+"Charlotte, NC",2019-02-21,"Rain, Overcast"
+"Columbus, OH",2018-03-31,Partially cloudy
+"Portland, ME",2018-07-08,Clear
+"Baltimore, MD",2018-12-26,Clear
+"Boston, MA",2018-06-18,"Rain, Overcast"
+"West Palm Beach/Palm Beach, FL",2019-06-20,Partially cloudy
+"Memphis, TN",2019-08-20,Clear
+"Santa Ana, CA",2019-07-24,Partially cloudy
+"Orlando, FL",2019-12-11,"Rain, Partially cloudy"
+"Boston, MA",2018-11-07,Partially cloudy
+"Bellingham, WA",2019-04-19,"Rain, Partially cloudy"
+"Lihue, HI",2018-04-30,Partially cloudy
+"Washington, DC",2019-07-03,Partially cloudy
+"Tampa, FL",2019-05-29,Clear
+"Everett, WA",2019-11-25,"Rain, Partially cloudy"
+"Louisville, KY",2019-12-31,Overcast
+"Washington, DC",2018-12-17,Partially cloudy
+"Fresno, CA",2019-09-08,Clear
+"Charlotte, NC",2018-08-09,Partially cloudy
+"St. Louis, MO",2018-05-02,Partially cloudy
+"Mosinee, WI",2018-02-12,Clear
+"Seattle, WA",2019-04-19,"Rain, Overcast"
+"Kapalua, HI",2018-07-07,"Rain, Partially cloudy"
+"New York, NY",2018-01-08,"Snow, Partially cloudy"
+"Newark, NJ",2019-08-08,"Rain, Partially cloudy"
+"Providence, RI",2019-11-21,Clear
+"Ontario, CA",2019-10-31,Clear
+"Tampa, FL",2018-08-22,"Rain, Partially cloudy"
+"Chicago, IL",2019-09-10,Partially cloudy
+"Denver, CO",2018-09-06,Overcast
+"Charlotte, NC",2019-02-18,"Rain, Partially cloudy"
+"Los Angeles, CA",2019-11-30,Partially cloudy
+"St. Louis, MO",2018-04-13,"Rain, Partially cloudy"
+"Denver, CO",2019-02-17,"Snow, Partially cloudy"
+"Minneapolis, MN",2019-07-26,"Rain, Partially cloudy"
+"New Orleans, LA",2019-07-03,Partially cloudy
+"Washington, DC",2018-06-12,Partially cloudy
+"Madison, WI",2019-11-19,Overcast
+"Houston, TX",2018-10-08,"Rain, Partially cloudy"
+"New Orleans, LA",2018-12-17,Partially cloudy
+"Orlando, FL",2019-06-23,Clear
+"Honolulu, HI",2019-12-07,Partially cloudy
+"Washington, DC",2018-03-11,Partially cloudy
+"Spokane, WA",2019-11-25,Partially cloudy
+"Harlingen/San Benito, TX",2018-04-26,"Rain, Partially cloudy"
+"Mobile, AL",2018-02-15,Partially cloudy
+"Burbank, CA",2019-03-25,Clear
+"Philadelphia, PA",2019-02-03,Partially cloudy
+"Dallas/Fort Worth, TX",2019-05-31,"Rain, Partially cloudy"
+"Atlanta, GA",2018-08-21,"Rain, Overcast"
+"Orlando, FL",2019-04-06,Rain
+"Houston, TX",2018-03-11,"Rain, Overcast"
+"Dallas/Fort Worth, TX",2018-09-18,Clear
+"Burlington, VT",2018-03-19,Clear
+"Baltimore, MD",2019-04-23,Partially cloudy
+"Des Moines, IA",2019-03-13,"Rain, Partially cloudy"
+"Long Beach, CA",2019-10-25,Clear
+"St. Louis, MO",2019-03-20,"Rain, Partially cloudy"
+"Denver, CO",2018-11-26,Partially cloudy
+"Jacksonville, FL",2019-10-14,Clear
+"Lubbock, TX",2018-02-03,Partially cloudy
+"Atlanta, GA",2019-08-29,Clear
+"Fort Myers, FL",2019-11-02,"Rain, Partially cloudy"
+"Valparaiso, FL",2019-08-01,Clear
+"Valdosta, GA",2018-03-01,"Rain, Overcast"
+"Phoenix, AZ",2019-10-01,Clear
+"Philadelphia, PA",2019-02-26,Partially cloudy
+"Portland, OR",2018-11-02,"Rain, Overcast"
+"Detroit, MI",2019-04-22,Clear
+"Tampa, FL",2018-07-20,"Rain, Partially cloudy"
+"Dallas/Fort Worth, TX",2019-12-12,Partially cloudy
+"Tampa, FL",2018-10-29,Clear
+"New York, NY",2018-03-01,Rain
+"Sitka, AK",2018-05-28,Rain
+"Clarksburg/Fairmont, WV",2018-06-08,"Rain, Partially cloudy"
+"Chicago, IL",2019-05-18,"Rain, Partially cloudy"
+"Newark, NJ",2019-06-26,Partially cloudy
+"Las Vegas, NV",2018-05-01,"Rain, Overcast"
+"St. Louis, MO",2018-01-17,Clear
+"Denver, CO",2018-11-02,Partially cloudy
+"Denver, CO",2019-01-09,Partially cloudy
+"Burlington, VT",2019-08-02,Clear
+"Atlanta, GA",2018-06-12,Partially cloudy
+"Louisville, KY",2018-12-03,"Rain, Overcast"
+"Kansas City, MO",2019-04-04,"Rain, Overcast"
+"San Diego, CA",2019-09-28,"Rain, Partially cloudy"
+"Phoenix, AZ",2018-06-29,Clear
+"San Francisco, CA",2019-05-23,Partially cloudy
+"South Bend, IN",2018-12-14,"Rain, Overcast"
+"Minneapolis, MN",2018-12-19,Partially cloudy
+"San Diego, CA",2019-11-05,Partially cloudy
+"Los Angeles, CA",2019-12-23,"Rain, Partially cloudy"
+"Minneapolis, MN",2019-04-16,Clear
+"Corpus Christi, TX",2019-02-02,"Rain, Overcast"
+"Dallas/Fort Worth, TX",2018-11-13,Partially cloudy
+"Santa Ana, CA",2018-06-07,Partially cloudy
+"Philadelphia, PA",2019-11-08,Partially cloudy
+"Los Angeles, CA",2018-09-18,Clear
+"Chicago, IL",2019-05-19,"Rain, Partially cloudy"
+"Detroit, MI",2018-05-05,Partially cloudy
+"San Francisco, CA",2018-08-06,Partially cloudy
+"Newark, NJ",2018-01-01,Clear
+"Rochester, NY",2019-10-08,Clear
+"Charlotte, NC",2018-01-22,Partially cloudy
+"Raleigh/Durham, NC",2018-01-15,Clear
+"Lafayette, LA",2019-12-05,Clear
+"Houston, TX",2018-08-09,"Rain, Partially cloudy"
+"Hartford, CT",2019-12-24,Clear
+"Los Angeles, CA",2019-12-12,Clear
+"Atlanta, GA",2019-09-02,Clear
+"Atlanta, GA",2019-03-20,Clear
+"Fort Myers, FL",2018-04-21,Partially cloudy
+"Charlotte, NC",2019-07-26,Partially cloudy
+"Seattle, WA",2018-10-20,Partially cloudy
+"Seattle, WA",2019-07-08,"Rain, Partially cloudy"
+"Columbus, OH",2018-05-30,"Rain, Partially cloudy"
+"Baltimore, MD",2018-01-29,Overcast
+"Fayetteville, AR",2019-08-01,"Rain, Partially cloudy"
+"Boston, MA",2019-09-03,Partially cloudy
+"San Francisco, CA",2019-12-03,"Rain, Partially cloudy"
+"Palm Springs, CA",2018-08-17,Clear
+"Fort Lauderdale, FL",2019-01-01,Partially cloudy
+"Burbank, CA",2018-01-13,Clear
+"Salt Lake City, UT",2019-06-30,"Rain, Partially cloudy"
+"Las Vegas, NV",2019-06-03,Clear
+"San Antonio, TX",2018-12-30,"Rain, Overcast"
+"Ontario, CA",2018-07-24,Partially cloudy
+"Charlotte, NC",2018-03-12,"Rain, Overcast"
+"Miami, FL",2019-10-22,Partially cloudy
+"Miami, FL",2019-03-20,"Rain, Partially cloudy"
+"Detroit, MI",2019-09-18,Clear
+"Chicago, IL",2019-05-06,"Rain, Partially cloudy"
+"Seattle, WA",2018-11-08,Partially cloudy
+"Orlando, FL",2018-01-04,Clear
+"Salt Lake City, UT",2019-10-25,Clear
+"San Francisco, CA",2018-06-06,Overcast
+"Sioux City, IA",2018-08-27,Clear
+"Bismarck/Mandan, ND",2018-07-28,Partially cloudy
+"Orlando, FL",2019-02-28,Partially cloudy
+"Atlanta, GA",2019-04-25,"Rain, Partially cloudy"
+"Charlotte, NC",2018-11-04,"Rain, Overcast"
+"New York, NY",2019-10-24,Clear
+"Dallas, TX",2019-11-30,"Rain, Partially cloudy"
+"Tampa, FL",2019-05-07,Partially cloudy
+"Charlotte, NC",2019-09-30,Partially cloudy
+"Detroit, MI",2019-12-23,Clear
+"Honolulu, HI",2019-10-09,Partially cloudy
+"Charlotte, NC",2018-07-07,Overcast
+"Manchester, NH",2019-10-17,"Rain, Overcast"
+"Seattle, WA",2018-04-04,"Rain, Overcast"
+"Dallas/Fort Worth, TX",2019-10-07,Partially cloudy
+"Las Vegas, NV",2018-10-05,Clear
+"Atlanta, GA",2018-08-09,"Rain, Partially cloudy"
+"Charlottesville, VA",2019-09-08,Clear
+"Kansas City, MO",2018-04-04,Clear
+"Phoenix, AZ",2018-12-30,Clear
+"Des Moines, IA",2019-09-24,Partially cloudy
+"Augusta, GA",2019-08-26,Partially cloudy
+"Guam, TT",2019-05-23,"Rain, Partially cloudy"
+"Little Rock, AR",2018-04-30,Partially cloudy
+"Portland, OR",2018-01-04,"Rain, Overcast"
+"Detroit, MI",2019-12-06,Partially cloudy
+"Las Vegas, NV",2018-05-11,Clear
+"Midland/Odessa, TX",2018-03-10,Clear
+"Tampa, FL",2018-07-03,"Rain, Partially cloudy"
+"Chicago, IL",2018-07-12,Partially cloudy
+"Minneapolis, MN",2019-10-31,Partially cloudy
+"El Paso, TX",2018-06-25,Clear
+"Roanoke, VA",2018-09-16,"Rain, Overcast"
+"Seattle, WA",2018-02-03,"Rain, Overcast"
+"Missoula, MT",2019-09-02,Clear
+"Cincinnati, OH",2018-03-13,"Rain, Partially cloudy"
+"San Francisco, CA",2018-12-29,Partially cloudy
+"Greer, SC",2019-03-08,"Rain, Overcast"
+"Roanoke, VA",2018-11-12,"Rain, Overcast"
+"San Francisco, CA",2019-09-23,Partially cloudy
+"Chicago, IL",2019-01-31,"Snow, Partially cloudy"
+"Madison, WI",2019-11-30,"Rain, Overcast"
+"Missoula, MT",2018-09-26,Clear
+"Akron, OH",2018-05-09,Clear
+"Atlanta, GA",2019-11-14,"Rain, Overcast"
+"Denver, CO",2018-04-13,"Rain, Overcast"
+"Chicago, IL",2018-08-23,Clear
+"Houston, TX",2018-08-26,Partially cloudy
+"Boston, MA",2019-12-07,"Snow, Partially cloudy"
+"Detroit, MI",2018-04-05,Partially cloudy
+"Las Vegas, NV",2019-12-17,Clear
+"Sacramento, CA",2019-12-19,"Rain, Partially cloudy"
+"St. George, UT",2019-05-12,Clear
+"Buffalo, NY",2018-05-25,Partially cloudy
+"Santa Ana, CA",2019-01-17,"Rain, Overcast"
+"Atlanta, GA",2018-03-23,Partially cloudy
+"Salt Lake City, UT",2018-12-04,Partially cloudy
+"Seattle, WA",2019-03-05,Clear
+"Dallas/Fort Worth, TX",2019-06-01,"Rain, Partially cloudy"
+"Chicago, IL",2019-09-08,"Rain, Partially cloudy"
+"Medford, OR",2018-12-29,Partially cloudy
+"Pittsburgh, PA",2019-03-08,Partially cloudy
+"New York, NY",2019-11-07,"Rain, Partially cloudy"
+"Charlotte Amalie, VI",2019-01-05,Clear
+"Houston, TX",2018-06-01,Partially cloudy
+"Dallas/Fort Worth, TX",2019-01-24,Clear
+"St. Louis, MO",2018-05-03,"Rain, Partially cloudy"
+"Boston, MA",2019-08-28,"Rain, Partially cloudy"
+"Charlotte, NC",2018-10-29,Clear
+"New York, NY",2019-07-25,Rain
+"Dallas/Fort Worth, TX",2018-12-28,Clear
+"Orlando, FL",2018-02-27,Partially cloudy
+"Lihue, HI",2018-10-26,"Rain, Partially cloudy"
+"Los Angeles, CA",2019-08-13,Partially cloudy
+"Green Bay, WI",2018-05-30,"Rain, Partially cloudy"
+"Santa Fe, NM",2018-07-15,"Rain, Partially cloudy"
+"Phoenix, AZ",2018-11-22,Overcast
+"Newark, NJ",2019-12-14,"Rain, Overcast"
+"Columbia, MO",2019-03-25,Partially cloudy
+"Kahului, HI",2018-01-05,Clear
+"Sacramento, CA",2018-09-27,Clear
+"Cincinnati, OH",2018-11-29,"Rain, Overcast"
+"San Antonio, TX",2018-12-24,Partially cloudy
+"Jacksonville, FL",2018-11-30,Partially cloudy
+"Seattle, WA",2019-02-27,Overcast
+"Atlanta, GA",2019-05-20,Partially cloudy
+"Houston, TX",2018-01-22,"Rain, Partially cloudy"
+"Colorado Springs, CO",2019-06-16,"Rain, Partially cloudy"
+"San Francisco, CA",2019-06-22,Clear
+"Springfield, MO",2018-02-22,"Rain, Overcast"
+"Burlington, VT",2018-02-21,Partially cloudy
+"Las Vegas, NV",2018-04-24,Clear
+"Rochester, NY",2018-03-14,"Snow, Overcast"
+"San Diego, CA",2018-10-14,Partially cloudy
+"Dallas/Fort Worth, TX",2018-04-17,Partially cloudy
+"San Juan, PR",2018-12-23,Partially cloudy
+"Washington, DC",2018-03-31,Clear
+"Houston, TX",2019-07-26,Clear
+"Las Vegas, NV",2018-03-05,Clear
+"Greer, SC",2019-09-13,Rain
+"Newark, NJ",2018-02-22,"Rain, Overcast"
+"Ketchikan, AK",2018-12-01,Clear
+"Pittsburgh, PA",2018-03-02,"Rain, Partially cloudy"
+"Pittsburgh, PA",2018-03-22,Snow
+"Denver, CO",2019-10-03,Partially cloudy
+"Kansas City, MO",2019-04-09,Clear
+"Memphis, TN",2019-02-22,"Rain, Overcast"
+"Phoenix, AZ",2019-10-11,Clear
+"Chicago, IL",2018-09-25,"Rain, Overcast"
+"Fargo, ND",2019-07-10,"Rain, Partially cloudy"
+"Chicago, IL",2019-12-20,Overcast
+"New York, NY",2019-05-12,"Rain, Partially cloudy"
+"Lihue, HI",2018-01-25,"Rain, Partially cloudy"
+"Philadelphia, PA",2019-06-16,"Rain, Partially cloudy"
+"Houston, TX",2018-05-24,Partially cloudy
+"Chicago, IL",2018-02-17,"Snow, Overcast"
+"Sacramento, CA",2018-10-05,Clear
+"Asheville, NC",2018-05-28,"Rain, Partially cloudy"
+"Chicago, IL",2018-01-26,Partially cloudy
+"San Diego, CA",2018-11-12,Clear
+"Fort Lauderdale, FL",2019-04-05,Partially cloudy
+"Baton Rouge, LA",2018-02-11,"Rain, Overcast"
+"Denver, CO",2018-01-31,Overcast
+"Chicago, IL",2018-06-07,Partially cloudy
+"Las Vegas, NV",2019-03-25,Clear
+"Orlando, FL",2018-04-10,"Rain, Overcast"
+"Fort Lauderdale, FL",2019-01-13,"Rain, Partially cloudy"
+"Sun Valley/Hailey/Ketchum, ID",2018-02-08,Clear
+"Salt Lake City, UT",2018-06-19,Partially cloudy
+"Houston, TX",2019-09-30,Clear
+"Flagstaff, AZ",2018-01-02,Clear
+"Los Angeles, CA",2018-09-13,Clear
+"Austin, TX",2019-04-18,"Rain, Partially cloudy"
+"Honolulu, HI",2018-06-19,Partially cloudy
+"Houston, TX",2018-07-07,"Rain, Partially cloudy"
+"St. Louis, MO",2018-04-18,Partially cloudy
+"Corpus Christi, TX",2018-08-02,Partially cloudy
+"Charlotte, NC",2019-12-25,Partially cloudy
+"Kahului, HI",2019-04-22,Partially cloudy
+"New York, NY",2018-08-13,"Rain, Partially cloudy"
+"Orlando, FL",2019-01-02,Partially cloudy
+"Houston, TX",2018-08-22,Partially cloudy
+"Minneapolis, MN",2018-11-20,Overcast
+"Atlanta, GA",2018-05-03,Partially cloudy
+"San Antonio, TX",2019-12-04,Clear
+"Tampa, FL",2019-05-22,Partially cloudy
+"Atlanta, GA",2019-07-26,Partially cloudy
+"Fayetteville, AR",2019-03-06,Clear
+"Baltimore, MD",2019-09-24,Partially cloudy
+"Detroit, MI",2019-07-01,Clear
+"New York, NY",2018-08-31,"Rain, Partially cloudy"
+"Boston, MA",2018-05-13,Overcast
+"Washington, DC",2019-12-10,"Rain, Partially cloudy"
+"Chicago, IL",2018-03-09,Partially cloudy
+"Newark, NJ",2018-11-16,"Snow, Partially cloudy"
+"Portland, OR",2018-04-26,Clear
+"Dallas/Fort Worth, TX",2018-12-30,"Rain, Overcast"
+"Miami, FL",2019-07-26,"Rain, Partially cloudy"
+"Denver, CO",2018-04-29,Overcast
+"Baltimore, MD",2019-04-21,Partially cloudy
+"Las Vegas, NV",2019-03-13,Rain
+"Phoenix, AZ",2018-12-13,Clear
+"Santa Ana, CA",2019-11-15,Partially cloudy
+"Fort Lauderdale, FL",2018-03-02,Partially cloudy
+"Chicago, IL",2019-02-15,Partially cloudy
+"Hartford, CT",2019-04-25,Clear
+"Atlanta, GA",2018-11-04,"Rain, Overcast"
+"Phoenix, AZ",2018-11-12,Clear
+"Indianapolis, IN",2018-07-23,"Rain, Overcast"
+"Miami, FL",2018-03-12,"Rain, Partially cloudy"
+"Dallas/Fort Worth, TX",2019-03-28,Partially cloudy
+"Fort Lauderdale, FL",2019-07-02,Partially cloudy
+"Houston, TX",2018-11-19,"Rain, Overcast"
+"Oakland, CA",2018-01-04,"Rain, Overcast"
+"Oklahoma City, OK",2018-11-08,"Rain, Overcast"
+"Orlando, FL",2019-04-15,Rain
+"Salt Lake City, UT",2018-04-09,"Rain, Partially cloudy"
+"St. Louis, MO",2018-03-14,Clear
+"Minneapolis, MN",2019-05-02,Overcast
+"Cleveland, OH",2019-10-03,"Rain, Overcast"
+"Denver, CO",2018-01-08,Partially cloudy
+"Houston, TX",2018-04-27,Clear
+"Minneapolis, MN",2019-06-20,"Rain, Partially cloudy"
+"New York, NY",2018-11-20,Partially cloudy
+"Austin, TX",2019-06-05,"Rain, Partially cloudy"
+"Boston, MA",2019-02-26,Clear
+"Miami, FL",2018-12-23,Clear
+"Cleveland, OH",2019-04-01,Partially cloudy
+"Kansas City, MO",2018-01-04,Clear
+"New York, NY",2019-08-20,Clear
+"Detroit, MI",2018-09-13,Partially cloudy
+"Newark, NJ",2018-08-20,Overcast
+"Salt Lake City, UT",2018-05-29,Partially cloudy
+"Oakland, CA",2019-01-01,Partially cloudy
+"Philadelphia, PA",2018-01-30,"Rain, Overcast"
+"Orlando, FL",2018-08-12,"Rain, Partially cloudy"
+"St. Louis, MO",2019-12-29,"Rain, Partially cloudy"
+"Moline, IL",2018-06-13,Clear
+"Seattle, WA",2018-04-13,"Rain, Overcast"
+"White Plains, NY",2019-10-24,Clear
+"Kansas City, MO",2018-04-13,"Rain, Partially cloudy"
+"Juneau, AK",2018-03-12,"Rain, Overcast"
+"Fort Lauderdale, FL",2018-12-23,Clear
+"Everett, WA",2019-10-03,Partially cloudy
+"Memphis, TN",2019-08-25,"Rain, Partially cloudy"
+"New Orleans, LA",2019-11-07,"Rain, Overcast"
+"New York, NY",2018-11-28,"Rain, Partially cloudy"
+"Denver, CO",2019-07-31,"Rain, Partially cloudy"
+"Washington, DC",2019-03-11,Partially cloudy
+"Cape Girardeau, MO",2019-08-25,Partially cloudy
+"Rhinelander, WI",2019-06-18,"Rain, Partially cloudy"
+"Corpus Christi, TX",2018-08-28,Partially cloudy
+"Los Angeles, CA",2018-04-01,Partially cloudy
+"Philadelphia, PA",2019-12-24,Partially cloudy
+"Dallas/Fort Worth, TX",2018-11-22,Partially cloudy
+"Boston, MA",2019-08-06,Partially cloudy
+"Orlando, FL",2018-03-12,"Rain, Partially cloudy"
+"Boston, MA",2018-11-30,Partially cloudy
+"Chicago, IL",2019-04-13,Partially cloudy
+"Seattle, WA",2019-11-17,"Rain, Overcast"
+"New York, NY",2019-06-28,Rain
+"Atlanta, GA",2018-04-27,"Rain, Partially cloudy"
+"Houston, TX",2019-12-29,"Rain, Partially cloudy"
+"Kahului, HI",2019-02-16,"Rain, Partially cloudy"
+"Fort Wayne, IN",2019-04-12,"Rain, Partially cloudy"
+"Salt Lake City, UT",2019-02-05,"Snow, Partially cloudy"
+"Portland, OR",2018-03-01,"Rain, Overcast"
+"Honolulu, HI",2019-02-05,Partially cloudy
+"Cleveland, OH",2018-04-16,"Rain, Overcast"
+"Santa Fe, NM",2018-08-05,Clear
+"Portland, OR",2018-02-15,"Rain, Overcast"
+"Philadelphia, PA",2019-09-25,Clear
+"Las Vegas, NV",2018-03-20,Partially cloudy
+"Norfolk, VA",2018-05-06,"Rain, Overcast"
+"Omaha, NE",2018-04-07,Partially cloudy
+"Orlando, FL",2018-07-07,"Rain, Partially cloudy"
+"Charlotte, NC",2018-10-30,Clear
+"Fort Lauderdale, FL",2019-04-12,Clear
+"Raleigh/Durham, NC",2018-11-04,"Rain, Overcast"
+"Oklahoma City, OK",2018-04-19,Clear
+"Minneapolis, MN",2018-03-24,Partially cloudy
+"Fort Lauderdale, FL",2019-04-16,Partially cloudy
+"New York, NY",2018-12-31,"Rain, Partially cloudy"
+"Dallas/Fort Worth, TX",2019-07-08,Partially cloudy
+"Boston, MA",2019-05-13,"Rain, Partially cloudy"
+"Miami, FL",2018-07-20,"Rain, Partially cloudy"
+"Miami, FL",2018-10-29,Clear
+"San Antonio, TX",2018-01-15,Partially cloudy
+"Detroit, MI",2018-06-19,"Rain, Partially cloudy"
+"Atlanta, GA",2018-05-31,Partially cloudy
+"Charleston, SC",2019-07-08,Partially cloudy
+"Dallas/Fort Worth, TX",2018-07-18,Partially cloudy
+"Milwaukee, WI",2018-06-08,"Rain, Overcast"
+"Seattle, WA",2019-08-03,Clear
+"San Jose, CA",2019-12-22,"Rain, Partially cloudy"
+"Austin, TX",2018-12-10,Clear
+"Harrisburg, PA",2019-08-21,"Rain, Partially cloudy"
+"Kansas City, MO",2019-10-03,Partially cloudy
+"Atlanta, GA",2018-11-09,"Rain, Overcast"
+"Chicago, IL",2018-03-19,Overcast
+"Kansas City, MO",2019-08-03,Partially cloudy
+"Dallas, TX",2018-09-05,"Rain, Overcast"
+"Washington, DC",2019-03-30,Overcast
+"Kansas City, MO",2019-04-01,Clear
+"Denver, CO",2019-09-30,Partially cloudy
+"New York, NY",2019-03-23,Clear
+"Houston, TX",2019-05-07,"Rain, Overcast"
+"Nashville, TN",2018-11-28,Partially cloudy
+"Washington, DC",2019-08-14,Partially cloudy
+"Salt Lake City, UT",2019-02-13,"Rain, Overcast"
+"Las Vegas, NV",2018-09-10,Clear
+"Atlanta, GA",2019-10-26,"Rain, Overcast"
+"Raleigh/Durham, NC",2018-11-21,Clear
+"Washington, DC",2018-08-17,Partially cloudy
+"Columbus, OH",2018-12-20,"Rain, Overcast"
+"Denver, CO",2018-12-09,Partially cloudy
+"Washington, DC",2019-03-12,Clear
+"Lafayette, LA",2019-09-22,Clear
+"Greensboro/High Point, NC",2018-06-27,Overcast
+"Boston, MA",2018-06-19,"Rain, Partially cloudy"
+"Phoenix, AZ",2018-08-21,Overcast
+"New York, NY",2018-03-24,Snow
+"San Francisco, CA",2018-06-25,Partially cloudy
+"Houston, TX",2018-08-17,Partially cloudy
+"Chicago, IL",2019-08-02,Partially cloudy
+"Newark, NJ",2018-07-14,Partially cloudy
+"Oakland, CA",2018-04-29,Partially cloudy
+"Phoenix, AZ",2019-08-29,Partially cloudy
+"Chicago, IL",2019-11-30,"Rain, Overcast"
+"Martha's Vineyard, MA",2019-06-26,"Rain, Partially cloudy"
+"Denver, CO",2018-04-18,Partially cloudy
+"Dallas/Fort Worth, TX",2018-11-12,"Rain, Overcast"
+"Charlotte, NC",2019-09-29,Partially cloudy
+"Baltimore, MD",2018-06-04,Partially cloudy
+"Charleston, SC",2019-05-17,Clear
+"Seattle, WA",2018-04-29,"Rain, Overcast"
+"Cleveland, OH",2018-03-01,"Snow, Overcast"
+"Raleigh/Durham, NC",2018-07-20,Overcast
+"Seattle, WA",2018-04-16,"Rain, Overcast"
+"Newark, NJ",2019-10-25,Partially cloudy
+"Charleston/Dunbar, WV",2019-04-29,Partially cloudy
+"Las Vegas, NV",2018-06-28,Clear
+"Baltimore, MD",2018-07-29,Partially cloudy
+"Newport News/Williamsburg, VA",2018-07-13,Partially cloudy
+"Lubbock, TX",2019-06-27,Partially cloudy
+"Greer, SC",2018-09-03,Partially cloudy
+"Fort Myers, FL",2018-05-18,Clear
+"Fort Lauderdale, FL",2019-10-31,"Rain, Partially cloudy"
+"Kalispell, MT",2018-05-15,Clear
+"Bend/Redmond, OR",2019-09-12,Clear
+"Mission/McAllen/Edinburg, TX",2018-09-20,Clear
+"Omaha, NE",2019-06-03,"Rain, Partially cloudy"
+"Seattle, WA",2018-01-08,"Rain, Overcast"
+"White Plains, NY",2018-12-14,Overcast
+"Newark, NJ",2019-04-03,Partially cloudy
+"San Juan, PR",2018-11-18,Partially cloudy
+"Grand Rapids, MI",2019-09-05,Partially cloudy
+"Washington, DC",2018-06-08,"Rain, Partially cloudy"
+"Charleston, SC",2019-03-05,"Rain, Partially cloudy"
+"Atlanta, GA",2018-08-17,"Rain, Partially cloudy"
+"Manchester, NH",2019-01-05,"Rain, Overcast"
+"Dallas/Fort Worth, TX",2018-04-06,"Rain, Overcast"
+"Chicago, IL",2018-09-01,"Rain, Overcast"
+"Boston, MA",2018-08-29,Partially cloudy
+"Boise, ID",2019-05-12,Clear
+"Los Angeles, CA",2018-03-29,Clear
+"San Jose, CA",2018-12-15,Partially cloudy
+"Salt Lake City, UT",2019-03-04,Overcast
+"El Paso, TX",2018-10-26,Clear
+"Burbank, CA",2019-06-17,Partially cloudy
+"Washington, DC",2019-10-19,Partially cloudy
+"Raleigh/Durham, NC",2019-10-26,Partially cloudy
+"Phoenix, AZ",2019-05-23,"Rain, Partially cloudy"
+"New York, NY",2019-03-10,"Rain, Partially cloudy"
+"Sacramento, CA",2019-07-13,Clear
+"St. Louis, MO",2019-12-05,Partially cloudy
+"Oakland, CA",2019-08-11,Partially cloudy
+"Minneapolis, MN",2019-05-30,Partially cloudy
+"El Paso, TX",2019-03-13,Partially cloudy
+"San Jose, CA",2019-11-24,Clear
+"Oakland, CA",2018-03-02,"Rain, Overcast"
+"Indianapolis, IN",2018-01-21,"Rain, Overcast"
+"Manchester, NH",2019-12-06,"Snow, Partially cloudy"
+"San Francisco, CA",2018-04-07,"Rain, Overcast"
+"Nashville, TN",2019-12-19,Rain
+"Green Bay, WI",2018-02-07,Partially cloudy
+"Oakland, CA",2019-07-02,Partially cloudy
+"Chicago, IL",2018-05-16,Partially cloudy
+"Baltimore, MD",2019-10-07,"Rain, Partially cloudy"
+"Atlanta, GA",2018-12-07,"Rain, Overcast"
+"Chicago, IL",2019-06-08,Partially cloudy
+"Savannah, GA",2018-12-25,Clear
+"Seattle, WA",2018-01-22,"Rain, Overcast"
+"Houston, TX",2019-08-04,"Rain, Partially cloudy"
+"Tulsa, OK",2018-06-22,Partially cloudy
+"Alexandria, LA",2018-08-10,Rain
+"Miami, FL",2019-01-14,Partially cloudy
+"Seattle, WA",2019-07-02,"Rain, Overcast"
+"St. Louis, MO",2019-07-19,Clear
+"Las Vegas, NV",2019-05-31,Clear
+"Los Angeles, CA",2018-05-25,Partially cloudy
+"Nashville, TN",2018-03-27,Overcast
+"Phoenix, AZ",2018-09-24,Partially cloudy
+"Indianapolis, IN",2018-08-05,Clear
+"Denver, CO",2019-02-24,Clear
+"Minneapolis, MN",2018-08-05,Partially cloudy
+"Washington, DC",2018-03-18,Clear
+"Charleston/Dunbar, WV",2018-08-31,Partially cloudy
+"Minneapolis, MN",2018-02-07,"Snow, Partially cloudy"
+"Baltimore, MD",2019-01-08,"Rain, Partially cloudy"
+"Atlanta, GA",2018-11-18,Clear
+"Norfolk, VA",2019-09-26,Partially cloudy
+"Kansas City, MO",2018-11-17,Partially cloudy
+"Helena, MT",2018-11-04,"Snow, Partially cloudy"
+"Detroit, MI",2019-05-17,Partially cloudy
+"Charlotte, NC",2018-02-04,"Rain, Overcast"
+"Columbus, OH",2019-01-17,"Rain, Overcast"
+"Tucson, AZ",2018-10-29,Clear
+"Portland, OR",2019-05-12,Partially cloudy
+"Charlotte, NC",2019-09-08,Clear
+"Medford, OR",2019-08-15,Clear
+"St. Petersburg, FL",2018-09-24,Rain
+"Atlanta, GA",2019-08-04,"Rain, Partially cloudy"
+"Fargo, ND",2018-08-26,"Rain, Partially cloudy"
+"Atlanta, GA",2019-12-05,Clear
+"Cincinnati, OH",2019-05-25,"Rain, Partially cloudy"
+"Huntsville, AL",2019-11-06,Clear
+"Norfolk, VA",2019-07-12,"Rain, Partially cloudy"
+"Boise, ID",2018-10-25,Clear
+"Chicago, IL",2019-03-18,Partially cloudy
+"Chicago, IL",2018-10-23,Clear
+"Denver, CO",2018-07-03,Partially cloudy
+"Philadelphia, PA",2018-07-01,Partially cloudy
+"Atlanta, GA",2019-05-18,Clear
+"Louisville, KY",2019-06-17,"Rain, Partially cloudy"
+"Chicago, IL",2018-12-12,Overcast
+"New York, NY",2019-05-15,"Rain, Partially cloudy"
+"Chicago, IL",2019-07-28,Partially cloudy
+"Miami, FL",2019-12-05,Partially cloudy
+"Detroit, MI",2018-05-25,Clear
+"Islip, NY",2019-04-28,"Rain, Partially cloudy"
+"San Francisco, CA",2019-12-30,Partially cloudy
