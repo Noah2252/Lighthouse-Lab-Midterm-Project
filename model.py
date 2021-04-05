@@ -53,12 +53,14 @@ def load(path):
     return joblib.load(path + '.joblib')
 
     
-def extract_x_y(xy, x_transformer):
+def extract_x_y(xy, x_transformer, y_transformer=None):
     """
-    Extracts the x and y variables from a dataframe containing both.
+    Extracts the (transformed) x and y variables from a dataframe containing both.
     """
     x = x_transformer(xy.drop(y_col, axis=1))
     y = xy[[y_col]]
+    if y_transformer:
+        y = y_transformer(y)
     return x, y
 
 
