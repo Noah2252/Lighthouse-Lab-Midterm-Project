@@ -2,6 +2,10 @@ import pandas as pd
 import joblib
 import sklearn.metrics as met
 
+
+y_col = 'arr_delay'
+
+
 def clean_train(x):
     """
     Cleans the training data (e.g. removing nulls and outliers).
@@ -40,6 +44,15 @@ def load(path):
     Loads the trained model from the specified file path.
     """
     return joblib.load(path + '.joblib')
+
+    
+def extract_x_y(xy, x_transformer):
+    """
+    Extracts the x and y variables from a dataframe containing both.
+    """
+    x = x_transformer(xy.drop(y_col, axis=1))
+    y = xy[[y_col]]
+    return x, y
 
 
 class Model:
