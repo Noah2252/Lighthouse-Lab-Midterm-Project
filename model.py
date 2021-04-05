@@ -2,6 +2,17 @@ import pandas as pd
 import joblib
 import sklearn.metrics as met
 
+
+y_col = 'arr_delay'
+submission_columns = [
+    'fl_date',
+    'mkt_carrier',
+    'mkt_carrier_fl_num',
+    'origin',
+    'dest'
+]
+
+
 def clean_train(x):
     """
     Cleans the training data (e.g. removing nulls and outliers).
@@ -40,6 +51,17 @@ def load(path):
     Loads the trained model from the specified file path.
     """
     return joblib.load(path + '.joblib')
+
+    
+def extract_x_y(xy, x_transformer, y_transformer=None):
+    """
+    Extracts the (transformed) x and y variables from a dataframe containing both.
+    """
+    x = x_transformer(xy.drop(y_col, axis=1))
+    y = xy[[y_col]]
+    if y_transformer:
+        y = y_transformer(y)
+    return x, y
 
 
 class Model:
@@ -83,15 +105,14 @@ class Model:
         predictions = self.model.predict(transformed_x)
         return self.y_untransformer(predictions)
 
-    def submit(self, x_path, submission_path, y_column_name, keep_columns=None):
+    def submit(self, x_path, submission_path, y_column_name):
         """
         Creates the submission file by predicting y
         values for the x values at x_path.
         """
         x = pd.read_csv(x_path)
         predictions = self.predict(x)
-        if keep_columns:
-            x = x[keep_columns]
+        x = x[submission_columns]
         x[y_column_name] = predictions
         x.to_csv(submission_path, index=False)
 
