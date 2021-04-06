@@ -24,7 +24,11 @@ def clean_train(x):
             'arr_delay', 'actual_elapsed_time', 'air_time'
         ]
     )
-    
+    x_no_na = x_no_na.drop(['cancellation_code','carrier_delay',
+                    'weather_delay','nas_delay','security_delay',
+                    'late_aircraft_delay','first_dep_time',
+                   'total_add_gtime','longest_add_gtime',
+                   'no_name'], axis =1)
     return clean_test(x_no_na)
 
 
