@@ -126,9 +126,12 @@ class TrainedModel:
         from the specified (untransformed) x dataframe. Returns the
         r-squared score for the predictions.
         """
-        x_tr, y_tr = self.transformers.extract_transform(valid_xy)
-        predictions = self.model.predict(x_tr)
-        return met.r2_score(y_tr, predictions)
+        x, y = self.transformers.extract_x_y(valid_xy)
+        x_tr = self.transformers.x_transformer(x)
+        y_pred_tr = self.model.predict(x_tr)
+        y_pred_tr = pd.DataFrame(y_pred_tr, index=y.index, columns=y.columns)
+        y_pred = self.transformers.y_untransformer(y_pred_tr)
+        return met.r2_score(y, y_pred)
     
     def submit(self, x_path, submission_path, y_column_name):
         """
