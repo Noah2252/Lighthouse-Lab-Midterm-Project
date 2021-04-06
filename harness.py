@@ -66,6 +66,42 @@ def unnormalize(y_tr):
     y = pd.DataFrame(y, index=y_tr.index, columns=y_tr.columns)
     return y
 
+def dummy_maker(df,col):
+        """
+        A function that takes a Dataframe and a catagorical column name and returns dataframe with the column replaced by dummy variables.
+        Parameters
+            - df: The Dataframe
+            - col (str): the column name
+        Returns:
+            - df_2: The Dataframe with dummbies instead of the selected columns
+        """
+        dummy = pd.get_dummies(df[col])
+        df_2 = pd.concat([df,dummy], axis=1)
+        df_2 = df_2.drop(col,axis=1)
+        return df_2
+    
+def add_grouped_stats(df,col):
+    """
+    Takes a DataFrame and a catagorical column name and adds five new columns to the Dataframe base off of grouped delay stats in relation to the catagories.
+    Parameters:
+        - df: The dataframe.
+        - col (str): The catagoriclal column which you would like to produces stats from in relation to delay.
+    Returns:
+        - df_2: The new dataframe with the stat column based off of chosen col.
+    """
+    df_2 = df.copy()
+    col_mean=col + '_delay_mean'
+    col_median=col+'_delay_median'
+    col_std=col+'_delay_std'
+    col_min = col+'_delay_min'
+    col_max=col+'_delay_max'
+    df_2[col_mean] = df[col].map(df.groupby([col]).arr_delay.mean().to_dict())
+    df_2[col_median] = df[col].map(df.groupby([col]).arr_delay.median().to_dict())
+    df_2[col_std] = df[col].map(df.groupby([col]).arr_delay.std().to_dict())
+    df_2[col_min] = df[col].map(df.groupby([col]).arr_delay.min().to_dict())
+    df_2[col_max] = df[col].map(df.groupby([col]).arr_delay.max().to_dict())
+    return df_2
+
 
 class DataTransformer:
     def __init__(self, x_transformer, y_transformer=None, y_untransformer=None):
