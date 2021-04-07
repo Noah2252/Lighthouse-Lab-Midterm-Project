@@ -66,26 +66,31 @@ def unnormalize(y_tr):
     y = pd.DataFrame(y, index=y_tr.index, columns=y_tr.columns)
     return y
 
+
 def dummy_maker(df,col):
-        """
-        A function that takes a Dataframe and a catagorical column name and returns dataframe with the column replaced by dummy variables.
-        Parameters
-            - df: The Dataframe
-            - col (str): the column name
-        Returns:
-            - df_2: The Dataframe with dummbies instead of the selected columns
-        """
-        dummy = pd.get_dummies(df[col])
-        df_2 = pd.concat([df,dummy], axis=1)
-        df_2 = df_2.drop(col,axis=1)
-        return df_2
-    
+    """
+    A function that takes a Dataframe and a catagorical column name and returns
+    dataframe with the column replaced by dummy variables.
+    Parameters
+        - df: The Dataframe
+        - col (str): the column name
+    Returns:
+        - df_2: The Dataframe with dummbies instead of the selected columns
+    """
+    dummy = pd.get_dummies(df[col])
+    df_2 = pd.concat([df,dummy], axis=1)
+    df_2 = df_2.drop(col,axis=1)
+    return df_2
+
+
 def add_grouped_stats(df,col):
     """
-    Takes a DataFrame and a catagorical column name and adds five new columns to the Dataframe base off of grouped delay stats in relation to the catagories.
+    Takes a DataFrame and a catagorical column name and adds five new columns to the
+    Dataframe base off of grouped delay stats in relation to the catagories.
     Parameters:
         - df: The dataframe.
-        - col (str): The catagoriclal column which you would like to produces stats from in relation to delay.
+        - col (str): The catagoriclal column which you would like to produces
+          stats from in relation to delay.
     Returns:
         - df_2: The new dataframe with the stat column based off of chosen col.
     """
@@ -101,6 +106,207 @@ def add_grouped_stats(df,col):
     df_2[col_min] = df[col].map(df.groupby([col]).arr_delay.min().to_dict())
     df_2[col_max] = df[col].map(df.groupby([col]).arr_delay.max().to_dict())
     return df_2
+
+
+def transfer_grouped_stats(df_train, df_test, col):
+    """
+    Takes a DataFrame and a categorical column name and adds grouped
+    stats for that column from another DataFrame. Use this
+    to transfer the training data's grouped stats to the testing data.
+    
+    Categories in the test data that aren't found in the training
+    data get the overall mean and median (across all categories)
+    the biggest std and max from any category, and the smallest min
+    from any category.
+    Parameters:
+        - df_train: The dataframe with the training data, from which
+          group stats should be calculated.
+        - df_test: The dataframe with the testing data, which the
+          new columns should be added to.
+        - col (str): The categorical column which you would like to produces
+          stats from in relation to delay.
+    Returns:
+        - df_2: The new dataframe with the stat column based off of chosen col.
+    """
+    df_2 = df_test.copy()
+    col_mean=col + '_delay_mean'
+    col_median=col+'_delay_median'
+    col_std=col+'_delay_std'
+    col_min = col+'_delay_min'
+    col_max=col+'_delay_max'
+    
+    df_2[col_mean] = df_test[col].map(
+        df_train.groupby([col]).arr_delay.mean().to_dict()
+    ).astype(float).fillna(df_train.arr_delay.mean())
+    df_2[col_median] = df_test[col].map(
+        df_train.groupby([col]).arr_delay.median().to_dict()
+    ).astype(float).fillna(df_train.arr_delay.median())
+    
+    std_map = df_train.groupby([col]).arr_delay.std().to_dict()
+    df_2[col_std] = df_test[col].map(std_map).astype(float).fillna(
+        max(std_map.values())
+    )
+    min_map = df_train.groupby([col]).arr_delay.min().to_dict()
+    df_2[col_min] = df_test[col].map(min_map).astype(float).fillna(
+        min(min_map.values())
+    )
+    max_map = df_train.groupby([col]).arr_delay.max().to_dict()
+    df_2[col_max] = df_test[col].map(max_map).astype(float).fillna(
+        max(max_map.values())
+    )
+    
+    return df_2
+
+
+def chain(*funcs):
+    """
+    Chains several functions together, passing the output of each function
+    as the first argument of the next. The result is a function
+    that takes the first function's first argument and returns the
+    last function's output.
+    
+    Each argument must be a function or a list containing the
+    function and the other arguments to pass to it.
+    """
+    def chained(arg):
+        for func in funcs:
+            try:
+                f, *args = func
+            except TypeError:
+                f = func
+                args = []
+            arg = f(arg, *args)
+        return arg
+    return chained
+
+
+def add_date_parts(df):
+    result = df.copy()
+    result['month']=result.fl_date.map(lambda v: int(v[5:7]))
+    result['day']=result.fl_date.map(lambda v: int(v[8:]))
+    return result
+
+    
+def add_haul(df):
+    result = df.copy()
+    result['haul']=result.crs_elapsed_time/60
+    result['haul'] = pd.cut(
+        result.haul,bins=[0,3,6,12],labels=['Short','Medium','Long']
+    )
+    return result
+
+
+def read_weather():
+    weather_0 = pd.read_csv('weather_0.csv', index_col=0)
+    weather_1 = pd.read_csv('weather_1.csv', index_col=0)
+    weather_2 = pd.read_csv('weather_2.csv', index_col=0)
+    weather_3 = pd.read_csv('weather_3.csv', index_col=0)
+    weather_4 = pd.read_csv('weather_4.csv', index_col=0)
+    weather = pd.concat([weather_0,weather_1,weather_2,weather_3,weather_4])
+    return weather
+
+
+def add_weather(df):
+    weather = read_weather()
+    df_with_weather = df.merge(
+        weather, left_on=['fl_date', 'origin_city_name'], right_on=['date', 'city']
+    ).merge(
+        weather, left_on=['fl_date', 'dest_city_name'], right_on=['date', 'city'],
+        suffixes=('_origin', '_dest')
+    )
+
+    weather_category_map = {
+        'Partially cloudy': 'Cloudy',
+        'Clear': 'Sunny',
+        'Rain, Partially cloudy': 'Rainy',
+        'Rain, Overcast': 'Rainy',
+        'Overcast': 'Cloudy',
+        'Rain': 'Rainy',
+        'Snow, Partially cloudy': 'Snowy',
+        'Snow, Overcast': 'Snowy',
+        'Snow': 'Snowy',
+    }
+    df_with_weather['weather_origin'] = df_with_weather.conditions_origin.map(weather_category_map)
+    df_with_weather['weather_dest'] = df_with_weather.conditions_dest.map(weather_category_map)
+    
+    df_with_weather = df.join(
+        df_with_weather[
+            ['conditions_origin', 'conditions_dest', 'weather_origin', 'weather_dest']
+        ],
+        how='left'
+    )
+    
+    df_with_weather['conditions_origin'] = df_with_weather['conditions_origin'].fillna('Unknown')
+    df_with_weather['conditions_dest'] = df_with_weather['conditions_dest'].fillna('Unknown')
+    df_with_weather['weather_origin'] = df_with_weather['weather_origin'].fillna('Unknown')
+    df_with_weather['weather_dest'] = df_with_weather['weather_dest'].fillna('Unknown')
+
+
+    df_with_weather['carrier_delay'] = df_with_weather['carrier_delay'].fillna(0)
+    df_with_weather['weather_delay'] = df_with_weather['weather_delay'].fillna(0)
+    df_with_weather['nas_delay'] = df_with_weather['nas_delay'].fillna(0)
+    df_with_weather['security_delay'] = df_with_weather['security_delay'].fillna(0)
+    df_with_weather['late_aircraft_delay'] = df_with_weather['late_aircraft_delay'].fillna(0)
+    df_with_weather['first_dep_time'] = df_with_weather['late_aircraft_delay'].fillna(0)
+    df_with_weather['total_add_gtime'] = df_with_weather['total_add_gtime'].fillna(0)
+    df_with_weather['longest_add_gtime'] = df_with_weather['longest_add_gtime'].fillna(0)
+    
+    return df_with_weather
+
+
+def add_all_grouped_stats(df, df_train):
+    df = add_weather_grouped_stats(df, df_train)
+    df = add_city_grouped_stats(df, df_train)
+    df = add_date_grouped_stats(df, df_train)
+    df = add_carrier_grouped_stats(df, df_train)
+    df = add_haul_grouped_stats(df, df_train)
+    df = add_tail_num_grouped_stats(df, df_train)
+    return df
+
+
+def add_weather_grouped_stats(df, df_train):
+    cols = [
+        'conditions_origin', 'conditions_dest',
+        'weather_origin', 'weather_dest',
+    ]
+    for col in cols:
+        df = transfer_grouped_stats(df_train, df, col)
+    return df
+
+
+def add_city_grouped_stats(df, df_train):
+    cols = [
+        'origin_city_name', 'dest_city_name',
+        'origin_airport_id', 'dest_airport_id',
+    ]
+    for col in cols:
+        df = transfer_grouped_stats(df_train, df, col)
+    return df
+
+
+def add_date_grouped_stats(df, df_train):
+    cols = [
+        'day', 'month',
+    ]
+    for col in cols:
+        df = transfer_grouped_stats(df_train, df, col)
+    return df
+
+
+def add_carrier_grouped_stats(df, df_train):
+    return transfer_grouped_stats(df_train, df, 'op_unique_carrier')
+
+
+def add_haul_grouped_stats(df, df_train):
+    return transfer_grouped_stats(df_train, df, 'haul')
+
+
+def add_tail_num_grouped_stats(df, df_train):
+    return transfer_grouped_stats(df_train, df, 'tail_num')
+
+
+def only_numeric(df):
+    return df.select_dtypes('number')
 
 
 class DataTransformer:
