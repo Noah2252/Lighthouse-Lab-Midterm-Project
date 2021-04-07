@@ -244,16 +244,6 @@ def add_weather(df):
     df_with_weather['conditions_dest'] = df_with_weather['conditions_dest'].fillna('Unknown')
     df_with_weather['weather_origin'] = df_with_weather['weather_origin'].fillna('Unknown')
     df_with_weather['weather_dest'] = df_with_weather['weather_dest'].fillna('Unknown')
-
-
-    df_with_weather['carrier_delay'] = df_with_weather['carrier_delay'].fillna(0)
-    df_with_weather['weather_delay'] = df_with_weather['weather_delay'].fillna(0)
-    df_with_weather['nas_delay'] = df_with_weather['nas_delay'].fillna(0)
-    df_with_weather['security_delay'] = df_with_weather['security_delay'].fillna(0)
-    df_with_weather['late_aircraft_delay'] = df_with_weather['late_aircraft_delay'].fillna(0)
-    df_with_weather['first_dep_time'] = df_with_weather['late_aircraft_delay'].fillna(0)
-    df_with_weather['total_add_gtime'] = df_with_weather['total_add_gtime'].fillna(0)
-    df_with_weather['longest_add_gtime'] = df_with_weather['longest_add_gtime'].fillna(0)
     
     return df_with_weather
 
