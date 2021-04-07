@@ -332,6 +332,23 @@ def scale(df):
     return pd.DataFrame(scaled, index=df.index, columns=df.columns)
 
 
+def score(y_true, y_pred):
+    return Score(
+        {
+            "R squared": met.r2_score(y_true, y_pred),
+            "Median absolute error": met.median_absolute_error(y_true, y_pred)
+        }
+    )
+
+
+class Score:
+    def __init__(self, scores):
+        self.scores = scores
+    
+    def __repr__(self):
+        return "\n".join(f"{metric}: {score:.3g}" for metric, score in self.scores.items())
+
+
 class DataTransformer:
     def __init__(self, x_transformer, y_transformer=None, y_untransformer=None):
         """
@@ -402,7 +419,7 @@ class TrainedModel:
         y_pred_tr = self.model.predict(x_tr)
         y_pred_tr = pd.DataFrame(y_pred_tr, index=y.index, columns=y.columns)
         y_pred = self.transformers.y_untransformer(y_pred_tr)
-        return met.r2_score(y, y_pred)
+        return score(y, y_pred)
     
     def submit(self, x_path, submission_path, y_column_name):
         """
