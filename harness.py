@@ -375,6 +375,12 @@ class DataTransformer:
         x, y = self.extract_x_y(xy)
         return self.x_transformer(x), self.y_transformer(y)
     
+    def score(self, estimator, x, y):
+        y_pred_tr = estimator.predict(x)
+        y_pred_tr = pd.DataFrame(y_pred_tr)
+        y_pred = self.y_untransformer(y_pred_tr)
+        return met.r2_score(y, y_pred)
+    
     
 class TrainedModel:
     def __init__(self, model, transformers):
