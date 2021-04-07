@@ -252,7 +252,7 @@ def make_carrier_dummies(df):
     col = 'op_unique_carrier'
     dummy = pd.get_dummies(df[col],prefix=col)
     df = pd.concat([df,dummy], axis=1)
-    return df    
+    return df
 
 
 def make_haul_dummies(df):
