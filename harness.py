@@ -1,5 +1,6 @@
 import pandas as pd
 import joblib
+import sklearn.preprocessing as pre
 import sklearn.metrics as met
 
 
@@ -324,6 +325,11 @@ def add_tail_num_grouped_stats(df, df_train):
 
 def only_numeric(df):
     return df.select_dtypes('number')
+
+
+def scale(df):
+    scaled = pre.StandardScaler().fit_transform(df)
+    return pd.DataFrame(scaled, index=df.index, columns=df.columns)
 
 
 class DataTransformer:
