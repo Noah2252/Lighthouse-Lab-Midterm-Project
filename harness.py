@@ -184,10 +184,33 @@ def chain(*funcs):
     return chained
 
 
+def keep_only_test_columns(df):
+    return df[[
+        'fl_date',
+        'mkt_unique_carrier',
+        'branded_code_share',
+        'mkt_carrier',
+        'mkt_carrier_fl_num',
+        'op_unique_carrier',
+        'tail_num',
+        'op_carrier_fl_num',
+        'origin_airport_id',
+        'origin',
+        'origin_city_name',
+        'dest_airport_id',
+        'dest',
+        'dest_city_name',
+        'crs_dep_time',
+        'crs_arr_time',
+        'crs_elapsed_time',
+        'distance',
+    ]]
+
+
 def add_date_parts(df):
     result = df.copy()
     result['month']=result.fl_date.map(lambda v: int(v[5:7]))
-    result['day']=result.fl_date.map(lambda v: int(v[8:]))
+    result['day']=result.fl_date.map(lambda v: int(v[8:10]))
     return result
 
     
@@ -374,7 +397,7 @@ class TrainedModel:
         Creates the submission file by predicting (untransformed) y
         values for the (untransformed) x values at x_path.
         """
-        x = pd.read_csv(x_path)
+        x = clean_test(pd.read_csv(x_path))
         x_tr = self.transformers.x_transformer(x)
         y_tr = self.model.predict(x_tr)
         y_tr = pd.DataFrame(y_tr, index=x.index, columns=[y_column_name])
