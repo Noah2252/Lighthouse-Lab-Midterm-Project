@@ -38,7 +38,9 @@ def read_flights(flights_path):
             ['fl_date', 'crs_arr_time']
         ],
         keep_date_col=True,
-    ).reset_index().set_index('id')
+    ).reset_index()
+    if 'id' in result.columns:
+        result.set_index('id', inplace=True)
     result.crs_dep_time = remove_colon(result.crs_dep_time)
     result.crs_arr_time = remove_colon(result.crs_arr_time)
     return result
@@ -343,7 +345,7 @@ def add_haul(df):
     result = df.copy()
     result['haul']=result.crs_elapsed_time/60
     result['haul'] = pd.cut(
-        result.haul,bins=[0,3,6,12],labels=[1,2,3]
+        result.haul,bins=[-99,3,6,99],labels=[1,2,3]
     ).astype(int)
     return result
 

@@ -90,7 +90,7 @@ def join_weather_to_df(df, weather):
     ]]
     
     with sqlite3.connect(':memory:') as conn:
-        df_sel.to_sql('flights', conn)
+        df_sel.to_sql('flights', conn, index_label='id')
         weather_sel.to_sql('weather', conn, index=False)
         conn.cursor().execute(
             'create index weather_idx on weather (iata_code, start_time_local, end_time_local)'
