@@ -65,6 +65,11 @@ def clean_train(x):
     return clean_test(x_no_na)
 
 
+def clean_train_late_only(x):
+    return x[x.arr_delay > 0]
+    
+
+
 def clean_test(x):
     """
     Cleans the testing data. This can't remove
