@@ -4,7 +4,7 @@ import joblib
 import sklearn.preprocessing as pre
 import sklearn.metrics as met
 
-
+import weather
 
 y_col = 'arr_delay'
 submission_columns = [
@@ -14,6 +14,33 @@ submission_columns = [
     'origin',
     'dest'
 ]
+
+
+def add_colon(time_str):
+    return (time_str[:-2] + ":" + time_str[-2:]).zfill(4)
+
+
+def remove_colon(time_col):
+    return time_col.str.replace(':', '').astype(int)
+
+
+def read_flights(flights_path):
+    result = pd.read_csv(
+        'data/flights_train.csv',
+        index_col=0,
+        converters={
+            'crs_dep_time': add_colon,
+            'crs_arr_time': add_colon,
+        },
+        parse_dates=[
+            ['fl_date', 'crs_dep_time'],
+            ['fl_date', 'crs_arr_time']
+        ],
+        keep_date_col=True,
+    ).reset_index().set_index('id')
+    result.crs_dep_time = remove_colon(result.crs_dep_time)
+    result.crs_arr_time = remove_colon(result.crs_arr_time)
+    return result
 
 
 def clean_train(x):
@@ -189,6 +216,8 @@ def chain(*funcs):
 
 def keep_only_test_columns(df):
     return df[[
+        'fl_date_crs_dep_time',
+        'fl_date_crs_arr_time',
         'fl_date',
         'mkt_unique_carrier',
         'branded_code_share',
@@ -211,7 +240,7 @@ def keep_only_test_columns(df):
 
 
 def make_all_dummies(df):
-#     df = make_weather_dummies(df)
+    df = make_weather_dummies(df)
     df = make_city_dummies(df)
     df = make_date_dummies(df)
     df = make_hour_dummies(df)
@@ -222,7 +251,7 @@ def make_all_dummies(df):
 
 
 def make_weather_dummies(df):
-    return df
+    return weather.add_weather(df)
     
 def make_city_dummies(df):
     cols = [
@@ -412,11 +441,21 @@ def scale(df):
     return pd.DataFrame(scaled, index=df.index, columns=df.columns)
 
 
+def remove_early(y):
+    return y.where(y < 0, 0)
+
+
 def score(y_true, y_pred):
     return Score(
         {
             "R squared": met.r2_score(y_true, y_pred),
-            "Median absolute error": met.median_absolute_error(y_true, y_pred)
+            "Median absolute error": met.median_absolute_error(y_true, y_pred),
+            "R squared (no early)": met.r2_score(
+                remove_early(y_true), remove_early(y_pred)
+            ),
+            "Median absolute error (no early)": met.median_absolute_error(
+                remove_early(y_true), remove_early(y_pred)
+            ),
         }
     )
 
