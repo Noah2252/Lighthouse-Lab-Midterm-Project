@@ -240,72 +240,91 @@ def keep_only_test_columns(df):
     ]]
 
 
-def make_all_dummies(df):
-    df = make_all_dummies_except_city_pairs(df)
-    df = make_city_pairs_dummies(df)
+def make_all_dummies(df, df_train):
+    df = make_all_dummies_except_city_pairs(df, df_train)
+    df = make_city_pairs_dummies(df, df_train)
     return df
 
 
-def make_all_dummies_except_city_pairs(df):
-    df = make_weather_dummies(df)
-    df = make_city_dummies(df)
-    df = make_date_dummies(df)
-    df = make_hour_dummies(df)
-    df = make_carrier_dummies(df)
-    df = make_haul_dummies(df)
+def make_all_dummies_except_city_pairs(df, df_train):
+    df = make_weather_dummies(df, df_train)
+    df = make_city_dummies(df, df_train)
+    df = make_date_dummies(df, df_train)
+    df = make_hour_dummies(df, df_train)
+    df = make_carrier_dummies(df, df_train)
+    df = make_haul_dummies(df, df_train)
     return df
 
 
-def make_weather_dummies(df):
+def make_weather_dummies(df, df_train):
     return weather.add_weather(df)
+
     
-def make_city_dummies(df):
+def make_city_dummies(df, df_train):
     cols = [
         'origin_city_name', 'dest_city_name',
         'origin_airport_id', 'dest_airport_id',
     ]
     for col in cols:
-        dummy = pd.get_dummies(df[col],prefix=col)
-        df = pd.concat([df,dummy], axis=1)
+        df = make_dummies(df, df_train, col)
     return df
 
-def make_date_dummies(df):
+
+def make_date_dummies(df, df_train):
     cols = ['month', 'day']
     for col in cols:
-        dummy = pd.get_dummies(df[col],prefix=col)
-        df = pd.concat([df,dummy], axis=1)
+        df = make_dummies(df, df_train, col)
     return df
     
 
-def make_hour_dummies(df):
-    col = 'hour'
-    dummy = pd.get_dummies(df[col],prefix=col)
-    df = pd.concat([df,dummy], axis=1)
-    return df
+def make_hour_dummies(df, df_train):
+    return make_dummies(df, df_train, 'hour')
     
 
-def make_carrier_dummies(df):
-    col = 'op_unique_carrier'
-    dummy = pd.get_dummies(df[col],prefix=col)
-    df = pd.concat([df,dummy], axis=1)
-    return df
+def make_carrier_dummies(df, df_train):
+    return make_dummies(df, df_train, 'op_unique_carrier')
 
 
-def make_haul_dummies(df):
-    col = 'haul'
-    dummy = pd.get_dummies(df[col],prefix=col)
-    df = pd.concat([df,dummy], axis=1)
-    return df
+def make_haul_dummies(df, df_train):
+    return make_dummies(df, df_train, 'haul')
 
-def make_city_pairs_dummies(df):
+
+def make_city_pairs_dummies(df, df_train):
     df = df.copy()
-    df['origin_dest_city_name'] = df['origin_city_name']+' to '+df['dest_city_name']
-    counts = df.origin_dest_city_name.value_counts()
-    mask = df.origin_dest_city_name.isin(counts.head(500).index)
-    df.origin_dest_city_name = df.origin_dest_city_name.where(mask, 'Other')
-    dummy = pd.get_dummies(df.origin_dest_city_name)
-    df = pd.concat([df,dummy], axis=1)
-    return df
+    df['origin_dest_city_name'] = (
+        df['origin_city_name'] +' to '+ df['dest_city_name']
+    )
+    df_train = df_train.copy()
+    df_train['origin_dest_city_name'] = (
+        df_train['origin_city_name'] + ' to ' + df_train['dest_city_name']
+    )
+    
+    # Use only the 500 most common city pairs
+    counts = df_train.origin_dest_city_name.value_counts()
+    mask = df_train.origin_dest_city_name.isin(counts.head(500).index)
+    df_train.origin_dest_city_name = df_train.origin_dest_city_name.where(mask, 'Other')
+    
+    return make_dummies(df, df_train, 'origin_dest_city_name')
+
+
+def make_dummies(df, df_train, col):
+    """
+    Creates dummies for a column in df, using
+    categories taken from def_train. This ensures that the
+    same columns appear in the same order in both training and
+    testing.
+    
+    Any categories present in df_train but not in df are
+    added with all zeros; any categories present in df
+    but not in df_train are removed.
+    """
+    categories = sorted(df_train[col].unique())
+    dummy_cols = [f'{col}_{cat}' for cat in categories]
+    dummy = pd.get_dummies(df[col], prefix=col)
+    for missing_dummy in (set(dummy_cols) - set(dummy.columns)):
+        dummy[missing_dummy] = 0
+    dummy = dummy[dummy_cols]
+    return pd.concat([df, dummy], axis=1)
     
 
 def add_date_parts(df):
