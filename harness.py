@@ -1,7 +1,9 @@
 import pandas as pd
+import numpy as np
 import joblib
 import sklearn.preprocessing as pre
 import sklearn.metrics as met
+
 
 
 y_col = 'arr_delay'
@@ -208,12 +210,80 @@ def keep_only_test_columns(df):
     ]]
 
 
+def make_all_dummies(df):
+#     df = make_weather_dummies(df)
+    df = make_city_dummies(df)
+    df = make_date_dummies(df)
+    df = make_hour_dummies(df)
+    df = make_carrier_dummies(df)
+    df = make_haul_dummies(df)
+    df = make_city_pairs_dummies(df)
+    return df
+
+
+def make_weather_dummies(df):
+    return df
+    
+def make_city_dummies(df):
+    cols = [
+        'origin_city_name', 'dest_city_name',
+        'origin_airport_id', 'dest_airport_id',
+    ]
+    for col in cols:
+        dummy = pd.get_dummies(df[col],prefix=col)
+        df = pd.concat([df,dummy], axis=1)
+    return df
+
+def make_date_dummies(df):
+    cols = ['month', 'day']
+    for col in cols:
+        dummy = pd.get_dummies(df[col],prefix=col)
+        df = pd.concat([df,dummy], axis=1)
+    return df
+    
+
+def make_hour_dummies(df):
+    col = 'hour'
+    dummy = pd.get_dummies(df[col],prefix=col)
+    df = pd.concat([df,dummy], axis=1)
+    return df
+    
+
+def make_carrier_dummies(df):
+    col = 'op_unique_carrier'
+    dummy = pd.get_dummies(df[col],prefix=col)
+    df = pd.concat([df,dummy], axis=1)
+    return df
+
+
+def make_haul_dummies(df):
+    col = 'haul'
+    dummy = pd.get_dummies(df[col],prefix=col)
+    df = pd.concat([df,dummy], axis=1)
+    return df
+
+def make_city_pairs_dummies(df):
+    df = df.copy()
+    df['origin_dest_city_name'] = df['origin_city_name']+' to '+df['dest_city_name']
+    df['origin_dest_airport_id']  =df['origin_airport_id'].map(lambda v: str(v))+' to '+df['dest_airport_id'].map(lambda v: str(v))
+    cols = ['origin_dest_city_name','origin_dest_airport_id']
+    for col in cols:
+        dummy = pd.get_dummies(df[col],prefix=col)
+        df = pd.concat([df,dummy], axis=1)
+    return df
+    
+
 def add_date_parts(df):
     result = df.copy()
     result['month']=result.fl_date.map(lambda v: int(v[5:7]))
     result['day']=result.fl_date.map(lambda v: int(v[8:10]))
     return result
 
+
+def add_hour(df):
+    result = df.copy()
+    result['hour']=result.crs_dep_time.map(lambda v: np.floor(v/100))
+    return result
     
 def add_haul(df):
     result = df.copy()
@@ -279,6 +349,7 @@ def add_all_grouped_stats(df, df_train):
     df = add_carrier_grouped_stats(df, df_train)
     df = add_haul_grouped_stats(df, df_train)
     df = add_tail_num_grouped_stats(df, df_train)
+    df = add_hour_grouped_stats(df, df_train)
     return df
 
 
@@ -305,6 +376,15 @@ def add_city_grouped_stats(df, df_train):
 def add_date_grouped_stats(df, df_train):
     cols = [
         'day', 'month',
+    ]
+    for col in cols:
+        df = transfer_grouped_stats(df_train, df, col)
+    return df
+
+
+def add_hour_grouped_stats(df, df_train):
+    cols = [
+        'hour'
     ]
     for col in cols:
         df = transfer_grouped_stats(df_train, df, col)
