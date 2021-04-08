@@ -217,7 +217,7 @@ def make_all_dummies(df):
     df = make_hour_dummies(df)
     df = make_carrier_dummies(df)
     df = make_haul_dummies(df)
-#     df = make_city_pairs_dummies(df)
+    df = make_city_pairs_dummies(df)
     return df
 
 
@@ -262,8 +262,14 @@ def make_haul_dummies(df):
     df = pd.concat([df,dummy], axis=1)
     return df
 
-
 def make_city_pairs_dummies(df):
+    df = df.copy()
+    df['origin_dest_city_name'] = df['origin_city_name']+' to '+df['dest_city_name']
+    df['origin_dest_airport_id']  =df['origin_airport_id'].map(lambda v: str(v))+' to '+df['dest_airport_id'].map(lambda v: str(v))
+    cols = ['origin_dest_city_name','origin_dest_airport_id']
+    for col in cols:
+        dummy = pd.get_dummies(df[col],prefix=col)
+        df = pd.concat([df,dummy], axis=1)
     return df
     
 
