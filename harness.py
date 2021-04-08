@@ -29,6 +29,7 @@ def read_flights(flights_path):
         'data/flights_train.csv',
         index_col=0,
         converters={
+            'fl_date': lambda x: x[:10],
             'crs_dep_time': add_colon,
             'crs_arr_time': add_colon,
         },
@@ -240,13 +241,18 @@ def keep_only_test_columns(df):
 
 
 def make_all_dummies(df):
+    df = make_all_dummies_except_city_pairs(df)
+    df = make_city_pairs_dummies(df)
+    return df
+
+
+def make_all_dummies_except_city_pairs(df):
     df = make_weather_dummies(df)
     df = make_city_dummies(df)
     df = make_date_dummies(df)
     df = make_hour_dummies(df)
     df = make_carrier_dummies(df)
     df = make_haul_dummies(df)
-    df = make_city_pairs_dummies(df)
     return df
 
 
@@ -294,11 +300,11 @@ def make_haul_dummies(df):
 def make_city_pairs_dummies(df):
     df = df.copy()
     df['origin_dest_city_name'] = df['origin_city_name']+' to '+df['dest_city_name']
-    df['origin_dest_airport_id']  =df['origin_airport_id'].map(lambda v: str(v))+' to '+df['dest_airport_id'].map(lambda v: str(v))
-    cols = ['origin_dest_city_name','origin_dest_airport_id']
-    for col in cols:
-        dummy = pd.get_dummies(df[col],prefix=col)
-        df = pd.concat([df,dummy], axis=1)
+    counts = df.origin_dest_city_name.value_counts()
+    mask = df.origin_dest_city_name.isin(counts.head(500).index)
+    df.origin_dest_city_name = df.origin_dest_city_name.where(mask, 'Other')
+    dummy = pd.get_dummies(df.origin_dest_city_name)
+    df = pd.concat([df,dummy], axis=1)
     return df
     
 
@@ -318,8 +324,8 @@ def add_haul(df):
     result = df.copy()
     result['haul']=result.crs_elapsed_time/60
     result['haul'] = pd.cut(
-        result.haul,bins=[0,3,6,12],labels=['Short','Medium','Long']
-    )
+        result.haul,bins=[0,3,6,12],labels=[1,2,3]
+    ).astype(int)
     return result
 
 
@@ -433,7 +439,10 @@ def add_tail_num_grouped_stats(df, df_train):
 
 
 def only_numeric(df):
-    return df.select_dtypes('number')
+    return df.select_dtypes('number').drop([
+        'mkt_carrier_fl_num', 'op_carrier_fl_num',
+        'origin_airport_id', 'dest_airport_id'
+    ], axis=1)
 
 
 def scale(df):
@@ -442,7 +451,7 @@ def scale(df):
 
 
 def remove_early(y):
-    return y.where(y < 0, 0)
+    return y.mask(y < 0, 0)
 
 
 def score(y_true, y_pred):
@@ -511,7 +520,12 @@ class DataTransformer:
         x, y = self.extract_x_y(xy)
         return self.x_transformer(x), self.y_transformer(y)
     
-    def score(self, estimator, x_tr, y_tr):
+    def score_transformed(self, estimator, x_tr, y):
+        y_pred_tr = estimator.predict(x_tr)
+        y_tr = self.y_transformer(pd.DataFrame(y))
+        return met.r2_score(y_tr, y_pred_tr)
+    
+    def score_untransformed(self, estimator, x_tr, y_tr):
         y_pred_tr = estimator.predict(x_tr)
         y_pred = self.y_untransformer(pd.DataFrame(y_pred_tr))
         y = self.y_untransformer(pd.DataFrame(y_tr))
@@ -545,7 +559,7 @@ class TrainedModel:
         Creates the submission file by predicting (untransformed) y
         values for the (untransformed) x values at x_path.
         """
-        x = clean_test(pd.read_csv(x_path))
+        x = clean_test(read_flights(x_path))
         x_tr = self.transformers.x_transformer(x)
         y_tr = self.model.predict(x_tr)
         y_tr = pd.DataFrame(y_tr, index=x.index, columns=[y_column_name])
