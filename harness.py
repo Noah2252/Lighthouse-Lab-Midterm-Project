@@ -26,7 +26,7 @@ def remove_colon(time_col):
 
 def read_flights(flights_path):
     result = pd.read_csv(
-        'data/flights_train.csv',
+        flights_path,
         index_col=0,
         converters={
             'fl_date': lambda x: x[:10],
