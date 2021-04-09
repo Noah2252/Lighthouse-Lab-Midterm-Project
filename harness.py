@@ -109,6 +109,45 @@ def unnormalize(y_tr):
     return y
 
 
+def keep_only(df, *cols):
+    return df[list(cols)]
+
+
+def drop(df, *cols):
+    return df.drop(list(cols), axis=1)
+
+
+def add_hour_decimal(df, col):
+    result = df.copy()
+    result[col + '_hours'] = result[col] // 100 + (result[col] % 100) / 60
+    return result
+
+
+def add_all_hour_decimal(df):
+    df = add_hour_decimal(df, 'crs_dep_time')
+    df = add_hour_decimal(df, 'crs_arr_time')
+    return df
+
+
+def powers_of(df, degree):
+    column_name = df.columns[0]
+    scaled = pre.StandardScaler().fit_transform(df)
+    dep_powers = pre.PolynomialFeatures(degree=degree).fit_transform(scaled)[:, 1:]
+    return pd.DataFrame(
+        dep_powers, columns = [
+            f'{column_name}_{i + 1}' for i in range(degree)
+        ],
+        index=df.index
+    )
+
+
+def powers_of_time(df):
+    df = add_all_hour_decimal(df)
+    return df.join(powers_of(df[['crs_dep_time_hours']], 6)).join(
+        powers_of(df[['crs_arr_time_hours']], 6)
+    )
+
+
 def dummy_maker(df,col):
     """
     A function that takes a Dataframe and a catagorical column name and returns
@@ -198,6 +237,32 @@ def transfer_grouped_stats(df_train, df_test, col):
     )
     
     return df_2
+
+
+def transfer_grouped_means(df, df_train, max_groups, *cols):
+    col_mean = "__".join(cols) + "_mean"
+    if max_groups is None:
+        means = df_train.groupby(list(cols)).arr_delay.mean().rename(col_mean)
+    else:
+        groups = (
+            df_train
+            .groupby(['origin', 'dest'])
+            .agg({'arr_delay': ['count', 'mean']})
+        )
+        groups.columns = groups.columns.droplevel()
+        means = (
+            groups
+            .sort_values(by='count', ascending=False)
+            .head(max_groups)
+            .drop('count', axis=1)
+            .rename({'mean': col_mean}, axis=1)
+        )
+        
+    result = df.merge(
+        means, left_on=['origin', 'dest'], right_index=True, how='left'
+    ).reindex(df.index)
+    result['has_' + col_mean] = (~result[col_mean].isna()).astype(int)
+    return result.fillna(df_train.arr_delay.mean())
 
 
 def chain(*funcs):
@@ -468,7 +533,7 @@ def only_numeric(df):
     return df.select_dtypes('number').drop([
         'mkt_carrier_fl_num', 'op_carrier_fl_num',
         'origin_airport_id', 'dest_airport_id'
-    ], axis=1)
+    ], axis=1, errors='ignore')
 
 
 def scale(df):
@@ -480,17 +545,24 @@ def remove_early(y):
     return y.mask(y < 0, 0)
 
 
+def discard_early(y_true, y_pred):
+    return y_true[y_true > 0].dropna(), y_pred[y_true > 0].dropna()
+
+
 def score(y_true, y_pred):
     return Score(
         {
             "R squared": met.r2_score(y_true, y_pred),
-            "Median absolute error": met.median_absolute_error(y_true, y_pred),
-            "R squared (no early)": met.r2_score(
+#             "Median absolute error": met.median_absolute_error(y_true, y_pred),
+            "R squared (early = 0)": met.r2_score(
                 remove_early(y_true), remove_early(y_pred)
             ),
-            "Median absolute error (no early)": met.median_absolute_error(
-                remove_early(y_true), remove_early(y_pred)
-            ),
+#             "Median absolute error (no early)": met.median_absolute_error(
+#                 remove_early(y_true), remove_early(y_pred)
+#             ),
+            "R squared (only delay)": met.r2_score(
+                *discard_early(y_true, y_pred)
+            )
         }
     )
 
@@ -578,7 +650,7 @@ class TrainedModel:
         y_pred_tr = self.model.predict(x_tr)
         y_pred_tr = pd.DataFrame(y_pred_tr, index=y.index, columns=y.columns)
         y_pred = self.transformers.y_untransformer(y_pred_tr)
-        return score(y, y_pred)
+        return x_tr, y, y_pred, score(y, y_pred)
     
     def submit(self, x_path, submission_path, y_column_name):
         """
