@@ -1,6 +1,11 @@
 import sqlite3
+import os.path as p
 
 import pandas as pd
+
+
+def in_this_directory(path):
+    return p.join(p.dirname(p.abspath(__file__)), path)
 
 
 def add_weather(df):
@@ -12,7 +17,10 @@ def add_weather(df):
 
 
 def read_weather():
-    weather = pd.read_csv('data/weather_events.csv', parse_dates=['start_time_utc', 'end_time_utc'])
+    weather = pd.read_csv(
+        in_this_directory('data/weather_events.csv'),
+        parse_dates=['start_time_utc', 'end_time_utc']
+    )
     # The times come in as UTC, so tell Pandas that
     weather.start_time_utc = weather.start_time_utc.dt.tz_localize('UTC')
     weather.end_time_utc = weather.end_time_utc.dt.tz_localize('UTC')

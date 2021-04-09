@@ -66,9 +66,9 @@ def clean_train(x):
 
 
 def clean_train_late_only(x):
+    x = clean_train(x)
     return x[x.arr_delay > 0]
     
-
 
 def clean_test(x):
     """
